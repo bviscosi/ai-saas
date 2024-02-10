@@ -2,12 +2,15 @@
 
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Sheet } from '@/components/ui/sheet';
 
 const MobileSidebar = () => {
 	return (
-		<Button variant='ghost' size='icon' className='md:hidden'>
-			<Menu />
-		</Button>
+		<Sheet>
+			<Button variant='ghost' size='icon' className='md:hidden'>
+				<Menu />
+			</Button>
+		</Sheet>
 	);
 };
 
