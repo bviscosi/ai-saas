@@ -18,6 +18,8 @@ import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loader } from '@/components/loader';
 import { cn } from '@/lib/utils';
+import { UserAvatar } from '@/components/user-avatar';
+import { BotAvatar } from '@/components/bot-avatar';
 
 interface ChatCompletionRequestMessage {
 	role: 'user' | 'assistant' | 'system';
@@ -116,6 +118,7 @@ const ConversationPage = () => {
 									message.role === 'user' ? 'bg-white border-black/10' : ''
 								)}
 								key={message.content}>
+								{message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
 								{message.content}
 							</div>
 						))}
