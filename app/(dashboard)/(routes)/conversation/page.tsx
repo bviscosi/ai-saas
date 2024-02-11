@@ -17,6 +17,7 @@ import axios from 'axios';
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loader } from '@/components/loader';
+import { cn } from '@/lib/utils';
 
 interface ChatCompletionRequestMessage {
 	role: 'user' | 'assistant' | 'system';
@@ -109,7 +110,14 @@ const ConversationPage = () => {
 					{messages.length === 0 && !isLoading && <Empty label='No conversation started.' />}
 					<div className='flex flex-col-reverse gap-y-4'>
 						{messages.map((message) => (
-							<div key={message.content}>{message.content}</div>
+							<div
+								className={cn(
+									'p-8 w-full flex items-start gap-x-8 rounded-lg',
+									message.role === 'user' ? 'bg-white border-black/10' : 'bg-muted'
+								)}
+								key={message.content}>
+								{message.content}
+							</div>
 						))}
 					</div>
 				</div>
