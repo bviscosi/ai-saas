@@ -7,17 +7,23 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';
-import { formSchema } from './constants';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import axios from 'axios';
+import { cn } from '@/lib/utils';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 
 import { Heading } from '@/components/heading';
 import { Empty } from '@/components/empty';
 import { Loader } from '@/components/loader';
-import { cn } from '@/lib/utils';
-import { UserAvatar } from '@/components/user-avatar';
-import { BotAvatar } from '@/components/bot-avatar';
+
+import { formSchema, amountOptions, resolutionOptions } from './constants';
 
 const ImagePage = () => {
 	const router = useRouter();
@@ -74,11 +80,11 @@ const ImagePage = () => {
 						focus-within:shadow-sm
 						grid
 						grid-cols-12
-						gaps-2'>
+						gap-2'>
 							<FormField
 								name='prompt'
 								render={({ field }) => (
-									<FormItem className='col-span-12 lg:col-span-10'>
+									<FormItem className='col-span-12 lg:col-span-6'>
 										<FormControl className='m-0 p-0'>
 											<Input
 												className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
@@ -94,7 +100,52 @@ const ImagePage = () => {
 								name='amount'
 								control={form.control}
 								render={({ field }) => (
-									<FormItem className='col-span-12 lg:col-span-2'></FormItem>
+									<FormItem className='col-span-12 lg:col-span-2'>
+										<Select
+											disabled={isLoading}
+											onValueChange={field.onChange}
+											value={field.value}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue defaultValue={field.value} />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{amountOptions.map((option) => (
+													<SelectItem key={option.value} value={option.value}>
+														{option.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								name='resolution'
+								control={form.control}
+								render={({ field }) => (
+									<FormItem className='col-span-12 lg:col-span-2'>
+										<Select
+											disabled={isLoading}
+											onValueChange={field.onChange}
+											value={field.value}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue defaultValue={field.value} />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{resolutionOptions.map((option) => (
+													<SelectItem key={option.value} value={option.value}>
+														{option.label}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormItem>
 								)}
 							/>
 							<Button className='col-span-12 lg:col-span-2 w-full' disabled={isLoading}>
