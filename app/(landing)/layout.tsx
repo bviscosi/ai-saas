@@ -5,3 +5,5 @@ const LandingLayout = ({ children }: { children: React.ReactNode }) => {
 		</main>
 	);
 };
+
+export default LandingLayout;
