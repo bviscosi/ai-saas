@@ -4,28 +4,28 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components//ui/card'
 
 const testimonials = [
 	{
-		name: 'Antonio',
+		name: 'Alex',
 		avatar: 'A',
 		title: 'Software Engineer',
-		description: `This is the best application I've ever used!`,
+		description: `This app is a game-changer. Speeds up development significantly.`,
 	},
 	{
-		name: 'Antonio',
-		avatar: 'A',
-		title: 'Software Engineer',
-		description: `This is the best application I've ever used!`,
+		name: 'Marcus',
+		avatar: 'M',
+		title: 'Composer',
+		description: `Transformed my music creation process. AI collaboration at its best.`,
 	},
 	{
-		name: 'Antonio',
-		avatar: 'A',
-		title: 'Software Engineer',
-		description: `This is the best application I've ever used!`,
+		name: 'Lena',
+		avatar: 'L',
+		title: 'Filmmaker',
+		description: `Revolutionized video production. Cuts editing time in half.`,
 	},
 	{
-		name: 'Antonio',
-		avatar: 'A',
-		title: 'Software Engineer',
-		description: `This is the best application I've ever used!`,
+		name: 'Tara',
+		avatar: 'T',
+		title: 'UX Designer',
+		description: `Elevates UX research, using AI for deeper user insights and interactions.`,
 	},
 ];
 export const LandingContent = () => {
