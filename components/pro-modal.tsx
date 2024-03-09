@@ -58,7 +58,8 @@ export const ProModal = () => {
 		try {
 			setLoading(true);
 			const response = await axios.get('/api/stripe');
-			(window.location.href = response.data).url;
+			window.location.href = response.data.url;
+			console.log(response.data);
 		} catch (err) {
 			console.log(err, 'STRIPE_CLIENT_ERROR');
 		} finally {
