@@ -19,4 +19,14 @@ export const checkSubscription = async () => {
 			stripePriceId: true,
 		},
 	});
+
+	if (!userSubscription) {
+		return false;
+	}
+
+	const isValid =
+		userSubscription.stripePriceId &&
+		userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now();
+
+	return !!isValid;
 };
