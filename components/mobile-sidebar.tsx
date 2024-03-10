@@ -3,7 +3,7 @@
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/_sidebar';
 import { useEffect, useState } from 'react';
 
 interface MobileSidebarProps {
