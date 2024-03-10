@@ -1,5 +1,5 @@
-import Navbar from '@/components/_navbar';
-import Sidebar from '@/components/_sidebar';
+import Navbar from '@/components/navbar';
+import Sidebar from '@/components/sidebar';
 import { getApiLimitCount } from '@/lib/api-limit';
 import { checkSubscription } from '@/lib/subscription';
 
